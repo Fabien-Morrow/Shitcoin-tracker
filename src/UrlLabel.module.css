@@ -1,7 +1,17 @@
+.urlLabel {
+    width: 100%;
+    margin: 3px auto;
+    display: flex;
+    border-radius: 3px;
+    justify-content: space-between;
+}
+
 .reachable {
-    background: green;
+    composes: urlLabel;
+    background: #00AC89;
 }
 
 .notReachable {
-    background: red;
+    composes: urlLabel;
+    background: #F8B287;
 }

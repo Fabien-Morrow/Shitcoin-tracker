@@ -52,15 +52,13 @@ function App() {
       localStorage.setItem("trackedUrls", JSON.stringify(trackedUrls))
     }
 
-  }, [trackedUrls])
+  }, [trackedUrls, appIsStarting])
 
   return (
     <div className={app.appContainer}>
       <AddUrl handle={addUrlToTrack} />
       <CheckUrls checkAll={checkAll} />
-      <div>
-        {trackedUrls.length && wrappedUrls}
-      </div>
+      {trackedUrls.length && wrappedUrls}
     </div>
   );
 }

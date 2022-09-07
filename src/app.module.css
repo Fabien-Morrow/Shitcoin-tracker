@@ -1,4 +1,13 @@
 .appContainer {
     width: 400px;
-    background: yellow;
+    padding: 10px;
+    border-radius: 5px;
+    background: rgb(191, 243, 230);
+
+    font-family: 'Roboto', sans-serif;
+    color: #354b46;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

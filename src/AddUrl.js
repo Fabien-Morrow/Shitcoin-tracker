@@ -2,6 +2,9 @@
 import React from "react"
 import { nanoid } from "nanoid"
 
+import styles from "./AddUrl.module.css"
+
+
 export default function Addurl(props) {
     const [urlToAdd, setUrlToAdd] = React.useState({ label: "", url: "" })
 
@@ -18,10 +21,11 @@ export default function Addurl(props) {
     }
 
     return (
-        <div>
-            <div>
-                <label htmlFor="urlToTrack">Add url to track</label>
+        <div className={styles.addUrlContainer}>
+            <div className={styles.addurl}>
+                <label className={styles.label} htmlFor="urlToTrack">Add url to track : </label>
                 <input
+                    className={styles.input}
                     type="text"
                     id="urlToTrack"
                     name="urlToTrack"
@@ -33,8 +37,11 @@ export default function Addurl(props) {
                         }
                     })}
                 />
-                <label htmlFor="urlLabel">Label :</label>
+            </div>
+            <div className={styles.addurl}>
+                <label className={styles.label} htmlFor="urlLabel">Label : </label>
                 <input
+                    className={styles.input}
                     type="text"
                     id="urlLabel"
                     name="urlLabel"
@@ -46,8 +53,8 @@ export default function Addurl(props) {
                         }
                     })}
                 />
-                <button onClick={packUrlAndReset}>Add</button>
             </div>
+            <button className={styles.button} onClick={packUrlAndReset}>Add url</button>
         </div>
     )
 }
