@@ -1,0 +1,7 @@
+.reachable {
+    background: green;
+}
+
+.notReachable {
+    background: red;
+}

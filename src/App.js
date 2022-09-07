@@ -7,7 +7,7 @@ import CheckUrls from "./CheckUrls"
 
 function App() {
   const [trackedUrls, setTrackedUrls] = React.useState([])
-  const [firstTime, setFirstTime] = React.useState()
+  const [appIsStarting, setAppIsStarting] = React.useState(true)
 
   const wrappedUrls = trackedUrls.map(urlObject => {
     return <UrlLabel key={urlObject.id} urlObject={urlObject} remove={removeUrlToTrack} />
@@ -43,16 +43,15 @@ function App() {
   }
 
   React.useEffect(() => {
-    console.log(trackedUrls)
-    // load localstorage if needed
-    if (trackedUrls.length === 0) {
+    if (appIsStarting) {
       if (JSON.parse(localStorage.getItem("trackedUrls"))) {
         setTrackedUrls(JSON.parse(localStorage.getItem("trackedUrls")))
       }
+      setAppIsStarting(false)
     } else {
-      // trackedUrls has changed, store it to localstorage
       localStorage.setItem("trackedUrls", JSON.stringify(trackedUrls))
     }
+
   }, [trackedUrls])
 
   return (
